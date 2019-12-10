@@ -67,22 +67,6 @@ input[type=button], input[type=submit] {
 	border: 0px;
 	color: white;
 }
-i {
-	height: 31.3px;
-	width: 268.02px;
-	background-color: #3897F0;
-	border-radius: 5px;
-	border: 0px;
-	color: white;
-	padding: 9px 0px;
-}
-footer {
-	display: block;
-	position: relative;
-}
-p {
-	width: 400px;
-}
 
 .under li {
 	display: inline-block;

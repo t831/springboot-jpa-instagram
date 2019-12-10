@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.cors().disable();
 		http.authorizeRequests()
 		// 해당 경로는 인증된 유저만 접속 가능
-		.antMatchers("/user/**", "/follow/**", "/image/**")
+		.antMatchers("/user/**", "/follow/**")
 		.authenticated()
 		// 그 외 : 인증 없이 접속 가능
 		.anyRequest()

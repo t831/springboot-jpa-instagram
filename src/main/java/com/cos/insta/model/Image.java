@@ -27,25 +27,25 @@ public class Image{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String location; //사진 찍은 위치
+	private String location; //사진 촬영 위치
 	private String caption; // 사진 설명
 	private String postImage; //포스팅 사진 경로  + 이름
 	
 	@ManyToOne
 	@JoinColumn(name="userId")
-	@JsonIgnoreProperties({"password", "images"})
+	@JsonIgnoreProperties({"password", "images"}) // json 변환 시 제외 / Jackson library 적용 X
 	private User user;
 	
 	// (1) Like List
-	@OneToMany(mappedBy = "image")
+	@OneToMany(mappedBy = "image") // mappedBy = "변수명"
 	private List<Likes> likes = new ArrayList<>();
 	
 	// (2) Tag List
-	@OneToMany(mappedBy = "image")
-	@JsonManagedReference
+	@OneToMany(mappedBy = "image") // mappedBy = "변수명"
+	@JsonManagedReference // 순환참조 방지
 	private List<Tag> tags = new ArrayList<>();
 	
-	@Transient // DB에 영향 X
+	@Transient // DB에 영향 X (테이블 만들어도 추가 안 됨)
 	private int likeCount;
 	
 	@CreationTimestamp

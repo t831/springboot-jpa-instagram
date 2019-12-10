@@ -20,4 +20,24 @@ public class TestController {
 		return "auth/join";
 	}
 	
+	@GetMapping("/test/profile")
+	public String testProfile() {
+		return "user/profile";
+	}
+	
+	@GetMapping("/test/feed")
+	public String testFeed() {
+		return "image/feed";
+	}
+	
+	@GetMapping("/test/profileEdit")
+	public String testProfileEdit() {
+		return "user/profile_edit";
+	}
+	
+	@GetMapping("/test/imageUpload")
+	public String testImageUpload() {
+		return "image/image_upload";
+	}
+	
 }

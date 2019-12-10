@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.Data;
 
-// 태그 검색은 안함.
+// 태그 검색은 제외함
 @Data
 @Entity
 public class Tag {
@@ -28,7 +28,7 @@ public class Tag {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="imageId")
-	@JsonBackReference
+	@JsonBackReference // 순환참조 방지
 	private Image image;
 	
 	@CreationTimestamp

@@ -24,8 +24,7 @@ public class Follow {
 	private int id;
 	
 	// 중간 테이블 생성
-	// fromUser가 toUser를 following
-	// toUser를 fromUser가 follower
+	// fromUser -> toUser 팔로우함
 	
 	@ManyToOne
 	@JoinColumn(name="fromUserId")

@@ -23,14 +23,15 @@ public class Likes {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name = "userId")
+	@JoinColumn(name = "userId") // JoinColumn 안 걸면 user_id가 됨
+	// id, username, profileImage 제외한 필드 Ignore
 	@JsonIgnoreProperties({"images", "password", "name", "website", "bio", "email", "phone", "gender", "createDate", "updateDate"})
-	private User user; // id, username, profileImage
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name = "imageId")
 	@JsonIgnoreProperties({"tags", "user", "likes"})
-	private Image image; // 기본 : image_id
+	private Image image;
 	
 	@CreationTimestamp
 	private Timestamp createDate;

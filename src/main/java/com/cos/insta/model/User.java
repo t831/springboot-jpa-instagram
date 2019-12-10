@@ -23,24 +23,24 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id; // 시퀀스
-	private String username; // 사용자 아이디
-	private String password; // 암호화된 패스워드
-	private String name; // 사용자 이름
-	private String website; // 홈페이지 주소
-	private String bio; // 자기 소개
+	private String username; // 유저 아이디
+	private String password; // 암호화 필요
+	private String name; // 유저 이름
+	private String website; // 유저 홈페이지 주소
+	private String bio; // 자기 소개 바이오
 	private String email;
 	private String phone;
 	private String gender;
-	private String profileImage; //프로필 사진 경로 + 이름
+	private String profileImage; // 프로필 사진 경로 + 이름
 	
 	// (1) findById() 때만 동작
 	// (2) findByUserInfo() 제외
 	@OneToMany(mappedBy = "user")
-	@JsonIgnoreProperties({"user", "tags", "likes"})
+	@JsonIgnoreProperties({"user", "tags", "likes"}) // 순환참조 방지
 	private List<Image> images = new ArrayList<>();
 	
-	@CreationTimestamp // 자동으로 현재 시간이 세팅
-	private Timestamp createDate;
-	@CreationTimestamp // 자동으로 현재 시간이 세팅
+	@CreationTimestamp // 자동으로 현재 시간 세팅
+	private Timestamp createDate; // import : sql
+	@CreationTimestamp // 자동으로 현재 시간 세팅
 	private Timestamp updateDate;
 }
